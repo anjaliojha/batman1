@@ -1,11 +1,12 @@
 class Umbrella{
     constructor(x,y,width,height){
+        
         var options = {
            isStatic : true 
        }
         this.body = Bodies.rectangle(x,y,width,height,options);
-        this.width = width ;
-        this.height = height ;
+        this.width = 300 ;
+        this.height = 200 ;
       this.image = loadImage("walking_1.png");
         World.add(world,this.body);
     }

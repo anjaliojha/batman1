@@ -18,10 +18,17 @@ function setup(){
     engine = Engine.create();
 	world = engine.world;
 
-    man = new Umbrella(160,350,500,500);
-    if(frameCount%160===0){
-       
+   
+
+    if(frameCount % 160=== 0){
+
+        for(var i=0; i<maxDrops; i++){
+            drops.push(new Drop(random(0,600), random(0,400)));
+        }
+
     }
+    man = new Umbrella(160,350);
+
 	Engine.run(engine);
      
 
@@ -29,8 +36,15 @@ function setup(){
 }
 
 function draw(){
-    background("black");
+    background("BLACK");
     man.display();
+
+Engine.update(engine);
+    for(var i = 0; i<maxDrops; i++){
+        drops[i].display();
+        drops[i].update();
+        
+    }
     
 }   
 
